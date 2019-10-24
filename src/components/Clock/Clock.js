@@ -26,19 +26,8 @@ class Clock extends Component {
     });
   }
 
-  appendLeadingZeroes(n){
-    if(n <= 9){
-      return "0" + n;
-    }
-    return n
-  }
-
   showTimeString() {
-    const hours = this.appendLeadingZeroes(this.state.time.getHours());
-    const minutes = this.appendLeadingZeroes(this.state.time.getMinutes());
-    const seconds = this.appendLeadingZeroes(this.state.time.getSeconds());
-
-    return `${hours}:${minutes}:${seconds}`
+    return this.state.time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
   }
 
   render() {
